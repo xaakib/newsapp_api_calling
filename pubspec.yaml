@@ -23,17 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bloc: ^6.1.1
   cached_network_image: ^2.5.0
-  carousel_slider: ^2.3.1
-  cupertino_icons: ^1.0.0
-  dio: ^3.0.10
-  eva_icons_flutter: ^2.0.1
-  flutter_html: ^1.1.0
   http: ^0.12.2
-  rxdart: ^0.25.0
-  timeago: ^2.0.29
   url_launcher: ^5.7.10
+  webview_flutter: ^1.0.7
 
 dev_dependencies:
   flutter_test:

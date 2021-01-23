@@ -145,9 +145,21 @@ class BlogTile extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          Image.network(imageUrl),
-          Text(title),
-          Text(desc),
+          ClipRRect
+          (
+            borderRadius: BorderRadius.circular(6),
+            child: Image.network(imageUrl)),
+            SizedBox(
+              height: 8,
+            ),
+          Text(title,style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            color: Colors.black87,
+          ),),
+          Text(desc,style: TextStyle(
+            color: Colors.black54,
+          ),),
         ],
       ),
     );
