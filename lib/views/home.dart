@@ -4,6 +4,7 @@ import 'package:newsapp_api_calling/helper/data.dart';
 import 'package:newsapp_api_calling/helper/news.dart';
 import 'package:newsapp_api_calling/model/article_model.dart';
 import 'package:newsapp_api_calling/model/categori_model.dart';
+import 'package:newsapp_api_calling/views/articale_view.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -84,6 +85,7 @@ class _HomeState extends State<Home> {
                               imageUrl: articles[index].urlToImage,
                               title: articles[index].title,
                               desc: articles[index].description,
+                              url: articles[index].url,
                             );
                           }),
                     ),
@@ -136,31 +138,49 @@ class CategoryTile extends StatelessWidget {
 }
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, desc;
+  final String imageUrl, title, desc, url;
 
-  const BlogTile({Key key, this.imageUrl, this.title, this.desc});
+  const BlogTile(
+      {@required this.imageUrl,
+      @required this.title,
+      @required this.desc,
+      @required this.url});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          ClipRRect
-          (
-            borderRadius: BorderRadius.circular(6),
-            child: Image.network(imageUrl)),
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => ArticalView(
+              blogUrl: url,
+
+            )));
+      },
+      child: Container(
+        child: Column(
+          children: [
+            ClipRRect(
+                borderRadius: BorderRadius.circular(6),
+                child: Image.network(imageUrl)),
             SizedBox(
               height: 8,
             ),
-          Text(title,style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w500,
-            color: Colors.black87,
-          ),),
-          Text(desc,style: TextStyle(
-            color: Colors.black54,
-          ),),
-        ],
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color: Colors.black87,
+              ),
+            ),
+            Text(
+              desc,
+              style: TextStyle(
+                color: Colors.black54,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
