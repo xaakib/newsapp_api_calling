@@ -1,3 +1,4 @@
+  
 class ArticleModel {
   String author;
   String title;
