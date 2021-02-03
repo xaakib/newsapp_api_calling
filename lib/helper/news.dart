@@ -7,7 +7,7 @@ class News {
   List<ArticleModel> news = [];
   Future<void> getNews() async {
     String url =
-        "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=e3947e1ee94c47419194740c73718b83";
+        "http://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=73de25b863444d4caef5078d531d812f";
 
     var response = await http.get(url);
 

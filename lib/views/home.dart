@@ -12,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // ignore: deprecated_member_use
   List<CategorieModel> categories = List<CategorieModel>();
   List<ArticleModel> articles = List<ArticleModel>();
 
@@ -151,10 +152,11 @@ class BlogTile extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ArticalView(
-              blogUrl: url,
-
-            )));
+            context,
+            MaterialPageRoute(
+                builder: (context) => ArticalView(
+                      blogUrl: url,
+                    )));
       },
       child: Container(
         child: Column(
