@@ -1,5 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:newsapp_api_calling/views/category_news.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CategoryTile extends StatelessWidget {
   final imageUrl, categoryName;
@@ -9,7 +11,13 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.leftToRight,
+                child: CategoryNews(categorie: categoryName)));
+      },
       child: Container(
         margin: EdgeInsets.only(right: 16),
         child: Stack(
