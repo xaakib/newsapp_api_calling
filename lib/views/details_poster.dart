@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+
+import 'articale_view.dart';
 
 class DetailsPoster extends StatelessWidget {
   final String imageUrl, title, desc, content, url;
@@ -42,6 +45,23 @@ class DetailsPoster extends StatelessWidget {
                     color: Colors.black,
                   ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                RaisedButton(
+                    child: Text(
+                      "Read More",
+                      style: TextStyle(color: Colors.red, fontSize: 20),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                              type: PageTransitionType.leftToRight,
+                              child: ArticalView(
+                                blogUrl: url,
+                              )));
+                    }),
               ],
             ),
           ),
