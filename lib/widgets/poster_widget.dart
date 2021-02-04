@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp_api_calling/views/articale_view.dart';
+import 'package:newsapp_api_calling/views/details_poster.dart';
+import 'package:page_transition/page_transition.dart';
 
 class BlogTile extends StatelessWidget {
-  final String imageUrl, title, desc, url;
+  final String imageUrl, title, desc, url, content;
 
   const BlogTile(
       {@required this.imageUrl,
+      @required this.content,
       @required this.title,
       @required this.desc,
       @required this.url});
@@ -16,10 +18,15 @@ class BlogTile extends StatelessWidget {
       onTap: () {
         Navigator.push(
             context,
-            MaterialPageRoute(
-                builder: (context) => ArticalView(
-                      blogUrl: url,
-                    )));
+            PageTransition(
+                type: PageTransitionType.leftToRight,
+                child: DetailsPoster(
+                  imageUrl: imageUrl,
+                  title: title,
+                  desc: desc,
+                  content: content,
+                  url: url,
+                )));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -27,8 +34,12 @@ class BlogTile extends StatelessWidget {
           child: Column(
             children: [
               ClipRRect(
-                  borderRadius: BorderRadius.circular(6),
-                  child: Image.network(imageUrl)),
+                borderRadius: BorderRadius.circular(6),
+                child: Hero(
+                  tag: imageUrl,
+                  child: Image.network(imageUrl),
+                ),
+              ),
               SizedBox(
                 height: 8,
               ),
