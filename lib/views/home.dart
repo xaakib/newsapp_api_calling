@@ -6,8 +6,6 @@ import 'package:newsapp_api_calling/model/article_model.dart';
 import 'package:newsapp_api_calling/model/categori_model.dart';
 import 'package:newsapp_api_calling/views/articale_view.dart';
 
-import 'catgorynew_screen.dart';
-
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();
@@ -109,14 +107,7 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => CategoriScreen(
-                      name: categoryName,
-                    )));
-      },
+      onTap: () {},
       child: Container(
         margin: EdgeInsets.only(right: 16),
         child: Stack(
