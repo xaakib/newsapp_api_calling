@@ -36,21 +36,27 @@ class _CategoryNewsState extends State<CategoryNews> {
       appBar: AppBar(
         title: Text(widget.categorie),
       ),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        child: ListView.builder(
-            physics: BouncingScrollPhysics(),
-            itemCount: articles.length,
-            itemBuilder: (context, index) {
-              return BlogTile(
-                imageUrl: articles[index].urlToImage,
-                title: articles[index].title,
-                desc: articles[index].description,
-                content: articles[index].content,
-                url: articles[index].url,
-              );
-            }),
-      ),
+      body: _loading
+          ? Center(
+              child: Container(
+                child: CircularProgressIndicator(),
+              ),
+            )
+          : Container(
+              height: MediaQuery.of(context).size.height,
+              child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  itemCount: articles.length,
+                  itemBuilder: (context, index) {
+                    return BlogTile(
+                      imageUrl: articles[index].urlToImage,
+                      title: articles[index].title,
+                      desc: articles[index].description,
+                      content: articles[index].content,
+                      url: articles[index].url,
+                    );
+                  }),
+            ),
     );
   }
 }

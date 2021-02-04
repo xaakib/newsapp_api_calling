@@ -1,10 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp_api_calling/helper/data.dart';
 import 'package:newsapp_api_calling/helper/news.dart';
 import 'package:newsapp_api_calling/model/article_model.dart';
 import 'package:newsapp_api_calling/model/categori_model.dart';
-import 'package:newsapp_api_calling/views/articale_view.dart';
 import 'package:newsapp_api_calling/widgets/categori_tile.dart';
 import 'package:newsapp_api_calling/widgets/poster_widget.dart';
 
@@ -18,6 +16,8 @@ class _HomeState extends State<Home> {
   List<CategorieModel> categories = List<CategorieModel>();
   // ignore: deprecated_member_use
   List<ArticleModel> articles = List<ArticleModel>();
+
+  // ignore: deprecated_member_use
 
   bool _loading = true;
   @override
