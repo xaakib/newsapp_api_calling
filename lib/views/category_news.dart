@@ -34,7 +34,7 @@ class _CategoryNewsState extends State<CategoryNews> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("data"),
+        title: Text(widget.categorie),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
