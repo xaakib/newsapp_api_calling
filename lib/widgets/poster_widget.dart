@@ -36,7 +36,7 @@ class BlogTile extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(6),
                 child: Hero(
-                  tag: imageUrl,
+                  tag: imageUrl ?? CircularProgressIndicator(),
                   child: Image.network(imageUrl),
                 ),
               ),
