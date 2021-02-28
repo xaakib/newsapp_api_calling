@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:page_transition/page_transition.dart';
 
 import 'articale_view.dart';
 
@@ -56,11 +55,10 @@ class DetailsPoster extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                           context,
-                          PageTransition(
-                              type: PageTransitionType.leftToRight,
-                              child: ArticalView(
-                                blogUrl: url,
-                              )));
+                          MaterialPageRoute(
+                              builder: (context) => ArticalView(
+                                    blogUrl: url,
+                                  )));
                     }),
               ],
             ),

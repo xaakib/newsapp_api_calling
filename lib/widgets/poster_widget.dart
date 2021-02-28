@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp_api_calling/views/details_poster.dart';
-import 'package:page_transition/page_transition.dart';
 
 class BlogTile extends StatelessWidget {
   final String imageUrl, title, desc, url, content;
@@ -18,15 +17,14 @@ class BlogTile extends StatelessWidget {
       onTap: () {
         Navigator.push(
             context,
-            PageTransition(
-                type: PageTransitionType.leftToRight,
-                child: DetailsPoster(
-                  imageUrl: imageUrl,
-                  title: title,
-                  desc: desc,
-                  content: content,
-                  url: url,
-                )));
+            MaterialPageRoute(
+                builder: (context) => DetailsPoster(
+                      imageUrl: imageUrl,
+                      title: title,
+                      desc: desc,
+                      content: content,
+                      url: url,
+                    )));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
